@@ -1,0 +1,22 @@
+<p>student-list works!</p>
+<button (click)="getAllStudent()">View ALL</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">course</th>
+        <th scope="col">Fee</th>
+        <th scope="col">email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <th scope="row">{{student.stdId}}</th>
+        <td>{{student.stdName}}</td>
+        <td>{{student.stdFee}}</td>
+        <td>{{student.stdCourse}}</td>
+        <td>{{student.stdEmail}}</td>
+      </tr>
+    </tbody>
+  </table>
