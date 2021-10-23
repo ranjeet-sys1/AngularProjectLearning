@@ -12,6 +12,8 @@ import { error } from '@angular/compiler/src/util';
 export class StudentListComponent implements OnInit {
   students:Student[];
   message:any[];
+  stdEmail:string="";
+  filterTerm: string;
 
   constructor(private service:StudentService,
     private router:Router) { }
@@ -29,6 +31,30 @@ export class StudentListComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  deleteStudent(id:any){
+    console.log("delete student");
+    this.service.deleteStudent(id).subscribe(
+      data=>{
+        this.message=data;
+        this.getAllStudent();
+      },
+      error=>{
+        console.log(error);
+      });
+  }
+  searchByEmail(email:string){
+    console.log("search student "+((document.getElementById("Search") as HTMLInputElement).value));
+    var num1 = ((document.getElementById("Search") as HTMLInputElement).value);
+    console.log(num1);
+    this.service.searchByEmail(num1).subscribe(
+      data=>{
+        this.message=data;
+        
+      },
+      error=>{
+        console.log(error);
+      });
   }
 
 

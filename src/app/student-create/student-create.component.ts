@@ -12,12 +12,14 @@ import { StudentService } from '../student.service';
 export class StudentCreateComponent implements OnInit {
   students:Student=new Student("","",0,"","","");
   message:any;
+  
 
 
   constructor(private service:StudentService,
     private router:Router) { }
 
   ngOnInit(): void {
+    this.students= new Student("","",0,"","","");
   }
   saveStudent(){
     console.log(this.students);
@@ -28,5 +30,20 @@ export class StudentCreateComponent implements OnInit {
     }
     );
   }
+  resetMessage(){
+    this.message="";
+  }
+  searchStudentByName(name:any){
+    console.log("api clicked");
+    this.service.searchByName(this.students.stdName).subscribe(
+      data=>{
+        this.message=data
+      },
+      error=>{
+        console.log(error);
+        
+      });
+  }
+  
 
 }

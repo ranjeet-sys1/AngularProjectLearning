@@ -1,5 +1,7 @@
-<p>student-list works!</p>
-<button (click)="getAllStudent()">View ALL</button>
+
+<h1>{{message}}</h1>
+<input class="form-control" id="Search"  type="text" placeholder="Search" aria-label="Search" name="Search" >
+<button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit" (click)="searchByEmail(filterTerm)">Search</button>
 <table class="table">
     <thead>
       <tr>
@@ -8,6 +10,7 @@
         <th scope="col">course</th>
         <th scope="col">Fee</th>
         <th scope="col">email</th>
+        <th scope="col" colspan="2">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +20,8 @@
         <td>{{student.stdFee}}</td>
         <td>{{student.stdCourse}}</td>
         <td>{{student.stdEmail}}</td>
+        <td><button type="button" class="btn btn-info">Info</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteStudent(student.stdId)">Delete</button></td>
       </tr>
     </tbody>
   </table>

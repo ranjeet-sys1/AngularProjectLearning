@@ -8,6 +8,7 @@ import { StudentCreateComponent } from './student-create/student-create.componen
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { StudentService } from './student.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StudentService } from './student.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule ,
+    Ng2SearchPipeModule
   ],
   providers: [StudentService],
   bootstrap: [AppComponent]
